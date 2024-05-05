@@ -3,20 +3,14 @@
     <div>
         <font-awesome-icon class="copyright-icon" icon="copyright"/>
       {{ (new Date()).getFullYear() }} {{user.name}}
-        | Get this template <a href="https://github.com/viryl15/vuejs-portfolio" target="_blank">here</a> ! 
     </div>
-    <SocialBar :links="links"/>
   </footer>
 </template>
 
 <script>
-import SocialBar from './SocialBar'
 export default {
   name: 'Footer',
-  props: ['user', 'links'],
-  components: {
-    SocialBar,
-  },
+  props: ['user'],
 }
 </script>
 

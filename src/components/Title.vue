@@ -2,7 +2,9 @@
     <div class="title">
       <h2>{{ title }}</h2>
       <div class="wrapper">
-        <div class="text-wrapper">{{ description }}</div>
+        <div class="text-wrapper">
+            {{ description }}
+        </div>
       </div>
     </div>
 </template>
@@ -23,6 +25,7 @@
   .title {
     text-align: center;
     color: map-get($colors, primary);
+    
     h2 {
       font-size: 4rem;
       text-transform: uppercase;

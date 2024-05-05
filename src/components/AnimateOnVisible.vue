@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition :name="name" :appear="appear">
-      <div v-if="isVisible" :style="{ animationDuration: `${duration}s`, transitionDuration: `${duration}s` }">
+      <div v-show="isVisible" :style="{ animationDuration: `${duration}s`, transitionDuration: `${duration}s` }">
         <slot></slot>
       </div>
     </transition>
