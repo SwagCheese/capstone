@@ -3,7 +3,7 @@ export default {
     name: "DescribedImage",
     props: {
         images: {
-            type: Array(String),
+            type: Array<String>(String),
             required: true
         },
         description: {

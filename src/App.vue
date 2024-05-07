@@ -2,7 +2,7 @@
     <transition class="wrapper" mode="out-in" name="fade" tag="div">
         <div id="app" class="wrapper">
             <!-- Main Title -->
-            <TitlePage title="Capstone Presentation" :subtitle="user.name" background="./img/backgrounds/milky_way.jpg" :separator="false"/>
+            <TitlePage title="Capstone Website" :subtitle="user.name" background="./img/backgrounds/milky_way.jpg" :separator="false"/>
             
             <!-- About Me -->
             <Profile :content="user.description" :user="user"/>
@@ -33,9 +33,15 @@
             <!-- Profile of my mentor -->
             <Profile :content="mentor.description" :user="mentor"/>
             
+            <!-- Mentor Interview -->
+            <Interview :interview="mentor.interview"/>
+            
             <!-- Achievements -->
             <TitlePage title="Achievements" subtitle="My academic and personal achievements." background="./img/backgrounds/sitting_on_rock.jpg"/>
   
+            <!-- Achievements Picture Slider -->
+            <ImageCarousel :images="achievements"/>
+            
             <!-- Final Decision for After High School -->
             <TitlePage title="Final Decision" subtitle="My final decision for after high school" background="./img/backgrounds/future.jpg"/>
             <br>
@@ -47,7 +53,7 @@
             
             <!-- Answer to Driving Question -->
             <TitlePage title="Answer to the Driving Question" :subtitle="driving_question" background="./img/backgrounds/panorama_ridge.jpg"/>
-            <TitlePage title="Extracurriculars have a positive impact on motivation"
+            <TitlePage title="Extracurriculars have a positive impact on life"
                        subtitle="<div style='text-align: left'>
                        <br/>
                        <p>For the average person, extracurriculars can:</p>
@@ -82,10 +88,12 @@ import ImageCarousel from "@/components/ImageCarousel.vue";
 import CardGrid from "@/components/CardGrid.vue";
 import Title from "@/components/Title.vue";
 import DescribedImage from "@/components/DescribedImage.vue";
+import Interview from "@/components/Interview.vue";
 
 export default {
     name: "App",
     components: {
+        Interview,
         CardGrid,
         ImageCarousel,
         TitlePage,
@@ -96,7 +104,7 @@ export default {
         DescribedImage
     },
     data: () => ({
-        driving_question: "How do extracurricular activities impact one's life?",
+        driving_question: "How do extracurriculars and hobbies impact one's life?",
         user: {
             name: "Thomas Harrison",
             subtitle: "",
@@ -107,7 +115,15 @@ export default {
                 subtitle: "",
                 presentation: {
                     title: "About myself",
-                    first: "Throughout my life I've been interested in many different topics. When I was very young, this meant learning about dinosaurs and construction equipment. Later, around grade 5, I became interested in coding simple games on khan academy. Nowadays, I am drawn more towards cooking and hiking. For the last 3 years, I have worked as a cook in a professional kitchen. I have also been on many hiking and camping trips, and even have one planned for one week from now, on May 19th. Alongside these interests, I also play both the Soprano and Alto Saxophone in band, and have been doing so since grade 4.",
+                    first:
+                        "I was born in Vancouver, and moved to North Vancouver at the age of 3. " +
+                        "Later, I attended Dorothy Lynas Elementary School, where, around grade 5, I got hooked on coding simple games and programs on Khan Academy. " +
+                        "I made many programs, most notably a 2D platformer and an interactive rubik's cube solving guide. " +
+                        "These days, I'm more into cooking and hiking. " +
+                        "I've been cooking professionally for the past three years at Scratch Kitchen, and I've been on countless hiking and camping trips. " +
+                        "In fact, I have a trip planned for next week, starting on May 19th, where I will be camping near Mount Brunswich with some friends. " +
+                        "In addition to these hobbies, I've also been playing Saxophone in the band since fourth grade. " +
+                        "I mostly play the Alto Saxophone, but I have recently begun playing the Soprano Saxophone on a few songs as well.",
                 }
             }
         },
@@ -115,7 +131,7 @@ export default {
             name: "Marvin Petalver",
             subtitle: "",
             city: "North Vancouver",
-            photo: "./img/mentor.jpg",
+            photo: "./img/mentor.jpg", //todo change this
             description: {
                 title: "My Mentor",
                 subtitle: "",
@@ -123,7 +139,25 @@ export default {
                     title: "Who is Marvin Petalver?",
                     first: "Marvin is the head chef at my workplace, and has mentored me in many areas of life. He has taught me about many different cooking techniques from prep tasks to baking, as well as various life skills. He has also taught me about the importance of hard work and dedication. He has been a great mentor to me, and I am grateful for all that he has done for me. If Marvin had to give everyone one piece of advice, it would be \"Black is always luckier than red\".",
                 }
-            }
+            },
+            interview: [
+                {
+                    question: "Did you have any hobbies back in high school?",
+                    answer: "Back in high school, I liked listening to music and playing video games, but apart from that I didn't have anything I was truly passionate about. My love for cooking didn't develop until after I graduated."
+                },
+                {
+                    question: "What advice would you give to your past self?",
+                    answer: "If I could give my past self any advice, it would be not to worry so much about the future. I spent a lot of time stressing about what I was going to do after high school, and it wasn't until I started working in a kitchen that I found my passion. Sometimes it's better to just go with the flow and see where life takes you."
+                },
+                {
+                    question: "What is your favourite dish to cook?",
+                    answer: "My favourite dish to cook is a classic carbonara. Carbonara is simple yet delicious, and it's my go-to dish when I want something comforting and satisfying. It's a dish that never fails to impress."
+                },
+                {
+                    question: "How did you get into cooking?",
+                    answer: "I used to work a lot of different jobs, constantly moving from one to the next, never really finding something that I enjoyed. It wasn't until I started working in a kitchen that I found my passion. I loved the fast-paced environment, the creativity, and the sense of accomplishment that came with creating something delicious. From that moment on, I knew that cooking was what I wanted to do."
+                }
+            ]
         },
         credits: [
             {
@@ -198,7 +232,7 @@ export default {
             {
                 title: "Musician",
                 description: "While I am passionate about playing the saxophone, I do not plan to make it my career. As a musician, I would likely not make enough money to support myself, and as a result I will keep it as a hobby.",
-                image: "../img/future/saxophone.jpg",
+                image: "../img/future/charlie_parker.jpg",
             },
             {
                 title: "Self Taught Programmer",
@@ -212,7 +246,7 @@ export default {
             images: [
                 {
                     url: "./img/camping/big_agnes_tent_on_seymour.jpg",
-                    description: "This photo is from a camping trip I went on with my friends in December 2023. We camped for one night, between the first and second peak of Mount Seymour. Our gear was not the best, as it quickly soaked through, but we still had a great time."
+                    description: "This photo is from a camping trip I went on with my friends in December 2023. We camped for one night, between the first and second peak of Mount Seymour. Our gear was not the best, and it quickly soaked through, but we still had fun."
                 },
                 {
                     url: "./img/camping/black_tusk.jpg",
@@ -228,7 +262,7 @@ export default {
                 },
                 {
                     url: "./img/cooking/candy_village.jpg",
-                    description: "I created this village from cake and dusted it with icing sugar to look like snow."
+                    description: "This village, which I created around Christmas in 2022, is made from a sweet cake and dusted it with icing sugar to look like snow. It was made using a specially shaped baking pan."
                 },
                 {
                     url: "./img/cooking/knife_collection.jpg",
@@ -236,7 +270,7 @@ export default {
                 },
                 {
                     url: "./img/band_concert_10.jpg",
-                    description: "This image was taken at a band concert in grade 10. I am the one standing up in the middle of the front row, preforming a solo."
+                    description: "This blurry photo was taken at a band concert in grade 10, during which I preformed a solo. I have done at least one solo every year since grade 4."
                 },
                 {
                     url: "./img/peppers/2023_grow_light.jpg",
@@ -254,31 +288,9 @@ export default {
                     url: "./img/cube_collection.jpg",
                     description: "Back in grade 10, I was obsessed with Rubik's Cubes and amassed a collection of 22 cubes. While I can still solve the 3x3 cube, my time is nowhere near the 30 seconds it once was."
                 },
-            ],
-            achievements:  [
                 {
-                    url: "./img/achievements/ccc_honor_roll.jpg",
-                    description: "After getting 66/75 points on the 2023 Canadian Computing Competition, I earned a spot on the honor roll. I placed in position 136 out of 6242 competitors."
-                },
-                {
-                    url: "./img/achievements/sfu_acceptance.png",
-                    description: "I applied to the Computer Science programme at SFU and was accepted to in January 2024."
-                },
-                {
-                    url: "./img/achievements/UBC_Acceptance.png",
-                    description: "I applied to both the Applied Science and Bachelor of Science programmes at UBC, and was accepted for Applied Sciences in February 2024."
-                },
-                {
-                    url: "./img/achievements/UBC_Placement_Guarantee.png",
-                    description: "I was offered a placement guarantee for the second year of UBC's Applied Science programme. This means that I am guaranteed a spot in the program of my choice, as long as I maintain an 80% average in my first year courses."
-                },
-                {
-                    url: "./img/achievements/sololearn_collage.png",
-                    description: "I have completed courses on Java, JavaScript, C++, C, and Web Development through SoloLearn, a free website."
-                },
-                {
-                    url: "./img/achievements/math_awards.jpg",
-                    description: "I have received awards for my performance in various math contests, including two school champion awards and a few certificates of distinction."
+                    url: "./img/chess_vs_me.jpg",
+                    description: "This is a photo of me playing chess against myself. I took it in grade 7 as part of a photography project. This led to a brief photography hobby, but I quickly lost interest."
                 }
             ],
             listed: [
@@ -308,6 +320,28 @@ export default {
                 },
             ]
         },
+        achievements:  [
+            {
+                url: "./img/achievements/ccc_honor_roll.jpg",
+                description: "After getting 66/75 points on the 2023 Canadian Computing Competition, I earned a spot on the honor roll. I placed in position 136 out of 6242 competitors."
+            },
+            {
+                url: "./img/achievements/SFU_Acceptance_resized.png",
+                description: "I applied to the Computer Science programme at SFU and was accepted to in January 2024."
+            },
+            {
+                url: "./img/achievements/UBC_Acceptance_resized.png",
+                description: "I applied to both the Applied Science and Bachelor of Science programmes at UBC, and was accepted for Applied Sciences in February 2024."
+            },
+            {
+                url: "./img/achievements/UBC_Placement_Guarantee_resized.png",
+                description: "I have been guaranteed second year placement provided that I achieve an 80% average."
+            },
+            {
+                url: "./img/achievements/math_awards.jpg",
+                description: "I have received awards for my performance in various math contests, including two school champion awards and a few certificates of distinction."
+            }
+        ],
         coding_skills: {
             title: "PROGRAMMING SKILLS",
             description: "Here are some of the Programming Languages, Frameworks, and Tools that I have learned over the years.",

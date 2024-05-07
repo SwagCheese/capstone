@@ -61,7 +61,7 @@ export default {
       transform: rotateY(0);
       
       h1 {
-        font-size: 6rem;
+        font-size: 4.5rem;
         text-align: center;
         margin: 0;
         line-height: 1;
