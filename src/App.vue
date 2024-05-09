@@ -16,6 +16,14 @@
             <!-- Hobby Picture Slider -->
             <ImageCarousel :images="hobbies.images"/>
             
+            <!-- Effect of Hobbies -->
+            <Effect :effects="[
+                'My hobbies have me to develop a sense of belonging and purpose',
+                'I have built self-confidence through my hobbies',
+                'My hobbies have provided me with opportunities to learn new skills and grow as a person',
+                'Some hobbies have led to long lasting interests and passions',
+                'Through clubs, I have formed connections with others who share my hobbies',
+                ]"/>
             <!-- Coding Languages -->
 <!--            <Skills :skills="coding_skills" :posts="coding_posts"/>-->
             <!-- Coding Projects -->
@@ -89,10 +97,12 @@ import CardGrid from "@/components/CardGrid.vue";
 import Title from "@/components/Title.vue";
 import DescribedImage from "@/components/DescribedImage.vue";
 import Interview from "@/components/Interview.vue";
+import Effect from "@/components/Effect.vue";
 
 export default {
     name: "App",
     components: {
+        Effect,
         Interview,
         CardGrid,
         ImageCarousel,
@@ -131,7 +141,7 @@ export default {
             name: "Marvin Petalver",
             subtitle: "",
             city: "North Vancouver",
-            photo: "./img/mentor.jpg", //todo change this
+            photo: "./img/marvin.jpg",
             description: {
                 title: "My Mentor",
                 subtitle: "",
@@ -335,7 +345,7 @@ export default {
             },
             {
                 url: "./img/achievements/UBC_Placement_Guarantee_resized.png",
-                description: "I have been guaranteed second year placement provided that I achieve an 80% average."
+                description: "I have guaranteed second year placement provided that I achieve an 80% average."
             },
             {
                 url: "./img/achievements/math_awards.jpg",
