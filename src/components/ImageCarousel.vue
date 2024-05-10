@@ -26,7 +26,7 @@
 <style scoped>
 .carousel-slide {
     h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     object-fit: cover;
     height: 90vh;

@@ -37,6 +37,8 @@ export default {
     background-color: transparent;
     transition: transform 0.5s ease-in-out;
     transform-style: preserve-3d;
+    width: 30vw;
+    height: 600px;
     
     .front, .back {
       position: absolute;
@@ -50,7 +52,7 @@ export default {
       color: white;
       
       p {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         padding: 5%;
         text-align: justify;
       }
@@ -61,7 +63,7 @@ export default {
       transform: rotateY(0);
       
       h1 {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
         text-align: center;
         margin: 0;
         line-height: 1;
@@ -72,27 +74,5 @@ export default {
       }
     }
   }
-}
-
-
-@media (min-width: map-get($breakpoints, small)) {
-    .card {
-        width: 90vw;
-        height: 90vw;
-    }
-}
-
-@media (min-width: map-get($breakpoints, medium)) {
-    .card {
-        width: 45vw;
-        height: 45vw;
-    }
-}
-
-@media (min-width: map-get($breakpoints, large)) {
-    .card {
-        width: 30vw;
-        height: 30vw;
-    }
 }
 </style>

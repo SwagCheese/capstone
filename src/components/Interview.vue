@@ -49,19 +49,19 @@ export default {
     }
 
     h1 {
-        font-size: 4rem;
+        font-size: 3rem;
         font-style: italic;
         font-weight: bold;
     }
   
     h3 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         color: map-get($colors, primary);
         padding-top: 1em;
     }
     
     p {
-        font-size: 2rem;
+        font-size: 1.7rem;
         color: map-get($colors, secondary);
         padding-left: 2vw;
         width: 75%;

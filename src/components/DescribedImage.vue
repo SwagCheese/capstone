@@ -50,7 +50,7 @@ hr {
 }
 
 p {
-    font-size: 2.2rem;
+    font-size: 2rem;
     text-align: justify;
     padding: 5px 20vw;
 }

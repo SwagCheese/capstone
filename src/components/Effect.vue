@@ -34,14 +34,14 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 2vh 0;
+  padding: 2vh 10px;
   height: 105vh;
   background: none;
 
   .image-contained {
     max-width: 30vw;
     max-height: 80vh;
-    margin: 10px 5vw;
+    margin: 10px 4vw;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border: none;
