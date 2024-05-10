@@ -119,7 +119,7 @@ export default {
             name: "Thomas Harrison",
             subtitle: "",
             city: "North Vancouver",
-            photo: "./img/profile.png",
+            photo: "./img/me.jpg",
             description: {
                 title: "About Me",
                 subtitle: "",
